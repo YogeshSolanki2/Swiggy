@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Swiggy"
+    }
+  },
+  "defaultProject": "Swiggy",
+  "cli": {
+    "analytics": false
+  }
 }
