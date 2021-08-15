@@ -38,6 +38,8 @@ export class LoginPageComponent  {
 
 
 
+
+
 }
 const control = new FormControl('YOgesh17#', Validators.pattern("^(?=.*[0-9])"+ "(?=.*[a-z])(?=.*[A-Z])"+ "(?=.*[@#$%^&+=])"+ "(?=\\S+$).{8,20}$"));
 

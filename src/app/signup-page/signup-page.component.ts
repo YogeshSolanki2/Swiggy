@@ -1,27 +1,45 @@
 import {Component ,OnInit} from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.css']
 })
+
 export class SignupPageComponent implements OnInit {
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-    Validators.maxLength(12),
-  ]);
-  matcher = new MyErrorStateMatcher();
   constructor() { }
+
+  minimunLength=2;
+  maximumLength=20;
+  
+  signUpForm = new FormGroup({
+    firstName: new FormControl('',[
+      Validators.required,
+      Validators.minLength(this.minimunLength),
+      Validators.maxLength(this.maximumLength),]),
+
+    lastName: new FormControl('',[
+      Validators.required,
+      Validators.minLength(this.minimunLength),
+      Validators.maxLength(this.maximumLength),]),
+
+    email: new FormControl('',[
+      Validators.required,
+      Validators.email]),
+      
+    password: new FormControl('',[
+      Validators.required,
+      Validators.pattern("^(?=.*[0-9])"+ "(?=.*[a-z])(?=.*[A-Z])"+ "(?=.*[@#$%^&+=])"+ "(?=\\S+$).{8,20}$")]) 
+  })
+
+  get data(){
+    return this.signUpForm.controls;
+  }
+ submit(){
+   console.log(this.signUpForm.value);
+ }
 
   ngOnInit(): void {
   }

@@ -1,18 +1,45 @@
-<p>signup-page works!</p>
-<form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-             placeholder="Ex. pat@example.com">
-      <mat-hint>Errors appear instantly!</mat-hint>
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('maxLength')">
-        MAXLENGTH  is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
+
+<div class="container">
+  <div class ="row">
+    <div class ="col-lg-3">
+<form [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <div class="example-form">
+      <label for="name">First Name</label>
+      <input formControlName="firstName" id="firstName" type="text" class="form-control">
+      <div *ngIf="data.firstName.touched && data.firstName.invalid" class="alert alert-danger">
+        <mat-error *ngIf="data.firstName.errors.required">First name is <Strong>Required</Strong></mat-error>
+        <mat-error *ngIf="data.firstName.errors.minlength">First name must be of <Strong>2 Character</Strong></mat-error>
+      </div>
+    </div>
+
+    <div class="example-form">
+      <label for="lastName">Last Name</label>
+      <input formControlName="lastName" id="lastname" type="text" class="form-control">
+      <div *ngIf="data.lastName.touched && data.lastName.invalid" class="alert alert-danger">
+        <mat-error *ngIf="data.lastName.errors.required">Last name is <Strong>Required</Strong></mat-error>
+        <mat-error *ngIf="data.lastName.errors.minlength">Last name must be of <Strong>2 Character</Strong></mat-error>
+      </div>
+    </div>
+
+    <div class="example-form">
+      <label for="email">Email</label>
+      <input formControlName="email" id="email" type="text" class="form-control">
+      <div *ngIf="data.email.touched && data.email.invalid" class="alert alert-danger">
+        <mat-error *ngIf="data.email.errors.required">Email is <Strong>Required</Strong></mat-error>
+        <mat-error *ngIf="data.email.errors.mail">Email is <Strong>Invalid</Strong></mat-error>
+      </div>
+    </div>
+
+    <div class="example-form">
+      <label for="password">Password</label>
+      <input formControlName="password" id="password" type="text" class="form-control">
+      <div *ngIf="data.password.touched && data.password.invalid" class="alert alert-danger">
+        <mat-error *ngIf="data.password.errors.required">Password is <Strong>Required</Strong></mat-error>
+        <mat-error *ngIf="data.password.errors.pattern">Password dont match the  <Strong>Criteria</Strong></mat-error>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
   </form>
+</div>
+</div>
+</div>
