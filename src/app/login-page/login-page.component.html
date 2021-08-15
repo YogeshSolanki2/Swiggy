@@ -1,13 +1,14 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title class = "direction" >Login</mat-card-title>
+<div class ="home">
+  <mat-card class="example-card">
+  <mat-card-header class = "direction">
+    <mat-card-title >Login</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div>
       <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+          <input type="email" matInput [formControl]="emailFormControl" [(ngModel)]="username" placeholder="Ex. pat@example.com">
           <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
             Please enter a valid email address
           </mat-error>
@@ -17,9 +18,27 @@
         </mat-form-field>
       </form>
     </div>
+    <div>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput [formControl]="passwordFormControl" [(ngModel)]="password" placeholder="password">
+         <mat-error *ngIf="passwordFormControl.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+            Password doent not match<strong>creteria</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </div>
   </mat-card-content>
-  <mat-card-actions class ="xyz">
-    <button mat-button>Login</button>
-    <button mat-button>SignUp</button>
-  </mat-card-actions>
+  <div class="buttons">
+    <div class="action_btn">
+    <button mat-button class="action_btn" [disabled]="username  === '' || password ==='' ? true : false " (click)="logIn()">LogIn</button>
+    <button mat-button class="action_btn" (click)="signUp()">SignUp</button>
+    </div>
+</div>
 </mat-card>
+</div> 
+

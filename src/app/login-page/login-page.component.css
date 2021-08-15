@@ -1,6 +1,36 @@
+.home {
+  align-self: center;
+   
+}
+.btn{
+ margin-left: 50%;
+ text-align: center;
+ min-width: 70px;
+ max-width: 70px;
+
+}
+.btn2{
+margin-left: auto;
+margin-right: auto;
+padding-left: 0px;
+}
+
+.buttons {
+  width: auto;
+  margin: 0 auto;
+  display: inline;
+  margin-left: 50%;
+  margin-right: auto;
+}
+  
+  .action_btn {
+  width: auto;
+  margin: 0 auto;
+  display: inline;
+}
 .example-form {
-  min-width: 150px;
-  max-width: 500px;
+  min-width: auto;
+  max-width: auto;
   width: 100%;
 }
 
@@ -9,7 +39,8 @@
 }
 
 .example-card {
-  max-width: 400px;
+  max-width: auto;
+  background-color: sienna;
 }
 
 .example-header-image {
@@ -17,7 +48,8 @@
   background-size: cover;
 }
 .direction{
-  padding-left: 300%;
+  padding-left: 50%;
+  font-weight: bold;
 }
 .xyz{
   padding-left: 35%;
