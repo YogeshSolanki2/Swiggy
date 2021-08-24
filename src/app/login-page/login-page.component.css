@@ -1,57 +1,93 @@
-.home {
-  align-self: center;
-   
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.heading{
+  font-size:2em;
+  margin-bottom: 0.5em;
+}
+.box{
+  margin: 0.2em 0;
+}
+.container .box mat-label{
+  color :rgba(255,255, 255, 0.781);
+}
+.container .box div{
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin: 0.5em 0;
+}
+.container .box input{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(19, 19, 19);
+  color: white;
+  border: none;
+  outline: none;
+  padding-left: 0.8em;
+  border-radius: 10px;
+  transition: all 1s;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: black;
+}
+.container{
+  background:rgb(15, 15, 15);
+  width: 350px;
+  height: 450px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  color: white;
+  padding: 2em;
+}
+.btn:hover{
+  transform:translate(-1%,5%);
+  box-shadow: 0 0 10px #ff416d65;
+}
+.text{
+  font-size:0.83em;
+  margin-top: 0.5em;
+  text-align: center;
+  color: rgba(255,255, 255, 0.623);
+}
+.text a{
+color: rgba(255,255, 255, 0.911);
+}
+.container .box input:focus::placeholder{
+  color: white;
+}
+.container .box div::before{
+  content :'';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  width: 102%;
+  height: 105%;
+  border-radius: 10px;
+  background: linear-gradient(to right,#ff416c,#ff4b2b);
 }
 .btn{
- margin-left: 50%;
- text-align: center;
- min-width: 70px;
- max-width: 70px;
-
-}
-.btn2{
-margin-left: auto;
-margin-right: auto;
-padding-left: 0px;
-}
-
-.buttons {
-  width: auto;
-  margin: 0 auto;
-  display: inline;
-  margin-left: 50%;
-  margin-right: auto;
-}
-  
-  .action_btn {
-  width: auto;
-  margin: 0 auto;
-  display: inline;
-}
-.example-form {
-  min-width: auto;
-  max-width: auto;
-  width: 100%;
-}
-
-.example-full-width {
-  width: 100%;
-}
-
-.example-card {
-  max-width: auto;
-  background-color: sienna;
-}
-
-.example-header-image {
-  padding: auto;
-  background-size: cover;
-}
-.direction{
-  padding-left: 50%;
-  font-weight: bold;
-}
-.xyz{
-  padding-left: 35%;
-  
+  width: 102%;
+  height: 40px;
+  border:none;
+  border-radius: 10px;
+  margin: 0.5em 0;
+  transform :translate(-1%);
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(to right ,#ff416c,#ff4b2b);
+  transition: all .4s;
 }
