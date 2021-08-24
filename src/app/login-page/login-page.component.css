@@ -1,5 +1,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.homeImage{
+  background-image: url("Y:\Swiggy\src\assets\name_your_poison-wallpaper-1920x1200.jpg");
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+padding-top:200px;
+} 
+
 .heading{
   font-size:2em;
   margin-bottom: 0.5em;
@@ -13,7 +21,13 @@
 .container .box div{
   position: relative;
   width: 100%;
-  height: 40px;
+  height: 60px;
+  margin: 0.5em 0;
+}
+.container .box div mat-error{
+  position: relative;
+  width: 20%;
+  height: 10px;
   margin: 0.5em 0;
 }
 .container .box input{
@@ -43,7 +57,7 @@ body{
 }
 .container{
   background:rgb(15, 15, 15);
-  width: 350px;
+  width: 450px;
   height: 450px;
   border-radius: 20px;
   display: flex;
@@ -51,6 +65,8 @@ body{
   flex-direction:column;
   color: white;
   padding: 2em;
+  opacity: 0.9;
+  margin: auto;
 }
 .btn:hover{
   transform:translate(-1%,5%);
