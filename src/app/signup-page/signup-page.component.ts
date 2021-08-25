@@ -10,38 +10,57 @@ import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@a
 
 export class SignupPageComponent implements OnInit {
   constructor() { }
-
+  firstName='';
+  lastName='';
+  phoneNumber='';
+  username='';
+  password='';
+  confirmPassword='';
   minimunLength=2;
   maximumLength=20;
   
-  signUpForm = new FormGroup({
-    firstName: new FormControl('',[
+  // signUpForm = new FormGroup({
+    firstNameFormControl= new FormControl('',[
       Validators.required,
       Validators.minLength(this.minimunLength),
-      Validators.maxLength(this.maximumLength),]),
+      Validators.maxLength(this.maximumLength)]);
 
-    lastName: new FormControl('',[
+    lastNameFromCotrol= new FormControl('',[
       Validators.required,
       Validators.minLength(this.minimunLength),
-      Validators.maxLength(this.maximumLength),]),
-
-    email: new FormControl('',[
-      Validators.required,
-      Validators.email]),
+      Validators.maxLength(this.maximumLength)]);
       
-    password: new FormControl('',[
-      Validators.required,
-      Validators.pattern("^(?=.*[0-9])"+ "(?=.*[a-z])(?=.*[A-Z])"+ "(?=.*[@#$%^&+=])"+ "(?=\\S+$).{8,20}$")]) 
-  })
+    phoneNumberFormControl=new FormControl('',[
+        Validators.required,
+         Validators.pattern("(0/91)?[7-9][0-9]{9}")
+      ]);
 
-  get data(){
-    return this.signUpForm.controls;
-  }
- submit(){
-   console.log(this.signUpForm.value);
- }
+      emailFormControl = new FormControl('', [
+        Validators.required,
+        Validators.email,
+      ]);
+      
+      passwordFormControl = new FormControl('', [
+        Validators.required,
+        Validators.pattern("^(?=.*[0-9])"+ "(?=.*[a-z])(?=.*[A-Z])"+ "(?=.*[@#$%^&+=])"+ "(?=\\S+$).{8,20}$")
+      ]);
+
+      confirmPasswordFormControl = new FormControl('', [
+        Validators.required,
+        Validators.pattern("^(?=.*[0-9])"+ "(?=.*[a-z])(?=.*[A-Z])"+ "(?=.*[@#$%^&+=])"+ "(?=\\S+$).{8,20}$")
+      ]);
+
+  // })
+signUp(){
+
+}
+//   get data(){
+//     return this.signUpForm.controls;
+//   }
+//  submit(){
+//    console.log(this.signUpForm.value);
+//  }
 
   ngOnInit(): void {
   }
-
 }

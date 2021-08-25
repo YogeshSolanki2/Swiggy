@@ -1,4 +1,91 @@
-<div class ="data-container">
+<div class="homeImage" >
+  <div class ="container">
+    <mat-card-header class = "heading">
+      <mat-card-title >SignUp</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="box">
+         <mat-label>First Name</mat-label>
+            <div>
+              <input type="text" matInput [formControl]="firstNameFormControl" [(ngModel)]="firstName" placeholder="Ex. John">
+                <mat-error *ngIf="firstNameFormControl.hasError('required')">
+                            Please Enter a Valid <strong>Name</strong> 
+                </mat-error>
+                <mat-error *ngIf="firstNameFormControl.hasError('minlength')">
+                            First Name must be of  <strong>2 Character</strong>
+                </mat-error>
+            </div>  
+      </form>
+      <form class="box">    
+        <mat-label>Last Name</mat-label>
+            <div>
+              <input type="text" matInput [formControl]="lastNameFromCotrol" [(ngModel)]="lastName" placeholder="lastName">
+                <mat-error *ngIf="lastNameFromCotrol.hasError('required')">
+                            Last Name is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="lastNameFromCotrol.hasError('minlength')">
+                            Last Name must be of <strong>2 Character</strong>
+                </mat-error>
+              </div>
+      </form>
+      <form class="box">    
+        <mat-label>Phone Number</mat-label>
+            <div>
+              <input type="text" matInput [formControl]="phoneNumberFormControl" [(ngModel)]="phoneNumber" placeholder="+91 **********">
+                <mat-error *ngIf="phoneNumberFormControl.hasError('required')">
+                            Phone Number is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="phoneNumberFormControl.hasError('pattern')">
+                            Phone Number must be of <strong>10 Digits</strong>
+                </mat-error>
+              </div>
+      </form>
+      <form class="box">
+        <mat-label>Email</mat-label>
+           <div>
+             <input type="email" matInput [formControl]="emailFormControl" [(ngModel)]="username" placeholder="Ex. pat@example.com">
+               <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                           Please Enter a Valid <strong>Email</strong> 
+               </mat-error>
+               <mat-error *ngIf="emailFormControl.hasError('required')">
+                           Email is <strong>required</strong>
+               </mat-error>
+           </div>  
+     </form>
+     <form class="box">    
+      <mat-label>Password</mat-label>
+          <div>
+            <input type="password" matInput [formControl]="passwordFormControl" [(ngModel)]="password" placeholder="password">
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                          Password is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+                          Password doent not match <strong>creteria</strong>
+              </mat-error>
+            </div>
+    </form>
+    <form class="box">    
+      <mat-label>Password</mat-label>
+          <div>
+            <input type="password" matInput [formControl]="confirmPasswordFormControl" [(ngModel)]="confirmPassword" placeholder="password">
+              <mat-error *ngIf="confirmPasswordFormControl.hasError('required')">
+                          Password is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="confirmPasswordFormControl.hasError('pattern')">
+                          Password doent not match <strong>creteria</strong>
+              </mat-error>
+            </div>
+    </form>
+    </mat-card-content>
+    <button class ="btn" [disabled]="firstName === '' || lastName === '' ||phoneNumber === ''||username  === '' || password ==='' ? true : false " (click)="signUp()">SignUp</button>
+        <p class ="text" >
+              Already have a Account? <a href ='#'>Login</a>
+        </p>     
+    </div>
+  </div>
+
+<!-- =============================================================== -->
+<!-- <div class ="data-container">
 <div class="container">
   <div class ="row">
     <div class ="col-lg-3">
@@ -45,6 +132,6 @@
 </div>
 </div>
 </div>
-</div> 
+</div>  -->
 
 
